@@ -1554,124 +1554,11 @@
       }
     };
 
-    const chart = document.getElementById('outcomeChart');
-    const targetPath = document.getElementById('targetPath');
-    const actualPath = document.getElementById('actualPath');
-    const areaPath = document.getElementById('areaPath');
-    const points = document.getElementById('chartPoints');
-    const labels = document.getElementById('chartLabels');
+    </script>
 
-    function chartWidth(){
-      return window.innerWidth <= 760 ? 400 : 1000;
-    }
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    function pointFor(values,index){
-      const max=Math.max(...values,120);
-      const width=chartWidth();
-      const x=values.length===1
-        ? width/2
-        : index*(width/(values.length-1));
-
-      return {
-        x,
-        y:204-(values[index]/max)*174
-      };
-    }
-
-    function pathFor(values){
-      return values.map((v,i)=>{
-        const point=pointFor(values,i);
-        return `${i?'L':'M'} ${point.x} ${point.y}`;
-      }).join(' ');
-    }
-
-    function render(key){
-
-      const data=outcomeData[key];
-      const actual=pathFor(data.actual);
-      const target=pathFor(data.target);
-      const width=chartWidth();
-
-      chart.setAttribute('viewBox',`0 0 ${width} 220`);
-      chart.setAttribute('preserveAspectRatio','none');
-
-      targetPath.setAttribute('d',target);
-      actualPath.setAttribute('d',actual);
-
-      areaPath.setAttribute(
-        'd',
-        `${actual} L ${width} 220 L 0 220 Z`
-      );
-
-      points.innerHTML=data.actual.map((v,i)=>{
-        const point=pointFor(data.actual,i);
-
-        return `
-          <circle
-            class="point"
-            cx="${point.x}"
-            cy="${point.y}"
-            r="5"
-          />
-        `;
-      }).join('');
-
-      labels.innerHTML=data.labels.map((label,i)=>{
-        const point=pointFor(data.actual,i);
-
-        return `
-          <text
-            class="chart-label"
-            x="${point.x}"
-            y="217"
-            text-anchor="${i===0?'start':i===data.labels.length-1?'end':'middle'}"
-          >
-            ${label}
-          </text>
-        `;
-      }).join('');
-
-      document.getElementById('chartTitle').textContent=data.title;
-      document.getElementById('stageSummary').textContent=data.summary;
-
-      document.querySelectorAll('.industry-tab').forEach(btn=>{
-        btn.classList.toggle(
-          'active',
-          btn.dataset.industry===key
-        );
-      });
-    }
-
-    document.getElementById('industryTabs').addEventListener('click',e=>{
-      if(e.target.matches('.industry-tab')){
-        render(e.target.dataset.industry);
-      }
-    });
-
-    const menuButton=document.getElementById('menuButton');
-    const mobileMenu=document.getElementById('mobileMenu');
-
-    menuButton.addEventListener('click',()=>{
-      mobileMenu.classList.toggle('open');
-    });
-
-    mobileMenu.addEventListener('click',e=>{
-      if(e.target.matches('a')){
-        mobileMenu.classList.remove('open');
-      }
-    });
-
-    window.addEventListener('resize',()=>{
-      render(
-        document.querySelector('.industry-tab.active').dataset.industry
-      );
-    });
-
-    render('retail');
-
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
+<script>
   const SUPABASE_URL = 'https://zczdsdserzcextpmeoma.supabase.co';
   const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_L5w6LHZM-6UvwRTqf_mbTw_ZlrkPeT8';
 
@@ -1679,33 +1566,39 @@
     SUPABASE_URL,
     SUPABASE_PUBLISHABLE_KEY
   );
+
+  const contactForm = document.getElementById('contact-form');
+
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const submitButton = contactForm.querySelector('[type="submit"]');
+    const formData = new FormData(contactForm);
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending…';
+
+    const { error } = await supabaseClient
+      .from('shuaib-bandeally-website-contacts')
+      .insert([{
+        name: formData.get('name'),
+        email: formData.get('email'),
+        topic: formData.get('topic'),
+        message: formData.get('message')
+      }]);
+
+    submitButton.disabled = false;
+    submitButton.textContent = 'Send me this message';
+
+    if (error) {
+      console.error('Supabase error:', error);
+      alert(`Could not send your message: ${error.message}`);
+      return;
+    }
+
+    alert('Message sent successfully!');
+    contactForm.reset();
+  });
 </script>
-<script>
-const contactForm = document.getElementById('contact-form');
-
-contactForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(contactForm);
-
-  const { error } = await supabaseClient
-    .from('shuaib-bandeally-website-contacts')
-    .insert({
-      name: formData.get('name'),
-      email: formData.get('email'),
-      topic: formData.get('topic'),
-      message: formData.get('message')
-    });
-
-  if (error) {
-    console.error('Supabase error:', error);
-    alert('Something went wrong. Please try again.');
-    return;
-  }
-
-  alert('Message sent successfully!');
-  contactForm.reset();
-});
-  </script>
 </body>
 </html>
