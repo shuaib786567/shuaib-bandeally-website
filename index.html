@@ -1680,6 +1680,31 @@
     SUPABASE_PUBLISHABLE_KEY
   );
 </script>
+<script>
+const contactForm = document.getElementById('contact-form');
 
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(contactForm);
+
+  const { error } = await supabaseClient
+    .from('shuaib-bandeally-website-contacts')
+    .insert({
+      name: formData.get('name'),
+      email: formData.get('email'),
+      topic: formData.get('topic'),
+      message: formData.get('message')
+    });
+
+  if (error) {
+    console.error('Supabase error:', error);
+    alert('Something went wrong. Please try again.');
+    return;
+  }
+
+  alert('Message sent successfully!');
+  contactForm.reset();
+});
 </body>
 </html>
