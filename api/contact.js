@@ -13,7 +13,10 @@ export default async function handler(request) {
     },
     body: JSON.stringify({
       from: 'onboarding@resend.dev',
-      to: ['bshuaibsalim787@gmail.com'],
+    to: [
+    'bshuaibsalim787@gmail.com',
+    'bshuaibsalim786@gmail.com'
+    ],
       subject: `New website enquiry — ${topic}`,
       html: `
         <h2>New contact form submission</h2>
