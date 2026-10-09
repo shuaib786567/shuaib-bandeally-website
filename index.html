@@ -1671,5 +1671,43 @@
 
   </script>
 
+  <script>
+
+    const contactForm = document.getElementById('contact-form');
+
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(contactForm);
+
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const topic = formData.get('topic');
+      const message = formData.get('message');
+
+      const subject = `Website enquiry — ${topic}`;
+
+      const body = `Hi Shuaib,
+
+My name is ${name}.
+My email address is ${email}.
+I'm reaching out about: ${topic}.
+
+Message:
+
+${message}
+
+Regards,
+
+${name}`;
+
+      const mailto =
+        `mailto:bshuaibsalim787@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      window.location.href = mailto;
+    });
+
+  </script>
+
 </body>
 </html>
