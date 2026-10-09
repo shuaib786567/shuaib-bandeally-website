@@ -500,127 +500,188 @@
 
     .approach-grid{
       display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:12px
+      grid-template-columns:repeat(3,1fr);
+      gap:16px
     }
 
-    .approach-card{
-      padding:25px 21px;
-      min-height:230px;
+    .approach-step{
+      min-height:252px;
       border:1px solid var(--line);
-      border-radius:8px;
-      background:rgba(255,255,255,.018)
+      border-radius:10px;
+      padding:24px;
+      background:linear-gradient(145deg,#17171e,#121217)
     }
 
-    .approach-card .number{
-      color:#a9b1ff;
-      font-size:11px
+    .step-no{
+      color:#abb4ff
     }
 
-    .approach-card h3{
-      margin:36px 0 12px;
-      font-size:19px;
+    .approach-step h3{
+      margin:55px 0 12px;
+      font-size:22px;
       font-weight:500;
-      letter-spacing:-.04em
+      letter-spacing:-.06em
     }
 
-    .approach-card p{
-      margin:0;
-      color:var(--muted);
+    .approach-step p{
       font-size:13px;
-      line-height:1.7
-    }
-
-    .experience-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:60px
-    }
-
-    .experience-copy h3{
-      margin:0 0 17px;
-      font-size:24px;
-      font-weight:500;
-      letter-spacing:-.05em
-    }
-
-    .experience-copy p{
-      margin:0;
-      max-width:490px;
+      line-height:1.65;
       color:var(--muted);
-      font-size:15px;
-      line-height:1.8
+      margin:0;
+      max-width:280px
     }
 
-    .role-list{
+    .approach-note{
+      color:#c2c2ca;
+      margin:27px 0 0;
+      font-size:15px;
+      line-height:1.65;
+      max-width:615px
+    }
+
+    .method-pill{
+      display:inline-block;
+      border:1px solid #baff79;
+      border-radius:999px;
+      padding:8px 17px;
+      color:#baff79;
+      font-size:13px;
+      margin-bottom:24px
+    }
+
+    .approach-step{
+      background:transparent;
+      border:0;
+      text-align:center;
+      padding:0 18px;
+      min-height:0
+    }
+
+    .approach-step .step-no{
+      color:#aeb7ff
+    }
+
+    .approach-step h3{
+      margin:17px 0 20px;
+      font-size:24px
+    }
+
+    .approach-step p{
+      margin:auto;
+      color:#b7bfd6;
+      font-size:15px;
+      line-height:1.55;
+      max-width:360px
+    }
+
+    .approach-note{
+      margin:66px auto 0;
+      text-align:center;
+      max-width:740px
+    }
+
+    .point-of-view{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:90px
+    }
+
+    .quote{
+      font-size:clamp(36px,4.05vw,55px);
+      font-weight:500;
+      line-height:1.03;
+      letter-spacing:-.075em;
+      margin:0
+    }
+
+    .pov-copy{
+      margin:4px 0 0;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.75
+    }
+
+    .pov-copy+p{
+      margin-top:18px
+    }
+
+    .skills{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:30px
+    }
+
+    .skill{
+      border:2px solid #29292e;
+      border-radius:999px;
+      color:#d8d8df;
+      padding:13px 21px;
+      font-size:15px;
+      font-weight:500
+    }
+
+    .experience{
       border-top:1px solid var(--line)
     }
 
     .role{
       display:grid;
-      grid-template-columns:90px 1fr;
-      gap:17px;
-      padding:22px 0;
+      grid-template-columns:150px 1fr 1.28fr;
+      gap:30px;
+      padding:26px 0;
       border-bottom:1px solid var(--line)
     }
 
-    .role time{
-      color:#a9b1ff
+    .role time,
+    .company{
+      color:#91919b
     }
 
     .role h3{
-      margin:0;
-      font-size:16px;
-      font-weight:500
-    }
-
-    .role .company{
-      margin-bottom:8px;
-      color:#aaaab4
+      margin:6px 0 0;
+      font-size:17px;
+      font-weight:500;
+      letter-spacing:-.045em
     }
 
     .role p{
-      grid-column:2;
       margin:0;
       color:var(--muted);
       font-size:13px;
-      line-height:1.7
+      line-height:1.65
     }
+
+    /* CONTACT FORM */
 
     .cf-intro{
-      display:grid;
-      grid-template-columns:210px 1fr;
-      gap:55px;
-      margin-bottom:50px
-    }
-
-    .cf-intro .label{
-      color:#a9b1ff
+      max-width:760px;
+      margin-bottom:55px
     }
 
     .cf-intro h2{
-      margin:0;
-      font-size:clamp(36px,4.4vw,60px);
+      font-size:clamp(40px,5vw,67px);
       font-weight:500;
-      letter-spacing:-.075em;
-      line-height:1
+      letter-spacing:-.078em;
+      line-height:.98;
+      margin:20px 0 0
     }
 
     .cf-intro p{
-      max-width:520px;
+      max-width:600px;
       color:var(--muted);
-      font-size:15px;
-      line-height:1.7
+      font-size:16px;
+      line-height:1.7;
+      margin:20px 0 0
     }
 
     .cf-wrap{
-      max-width:760px;
-      margin-left:auto
+      max-width:760px
     }
 
     .cf-form{
       display:grid;
-      gap:23px
+      gap:25px
     }
 
     .cf-row{
@@ -631,151 +692,132 @@
 
     .cf-label{
       display:block;
-      margin-bottom:10px;
-      color:#d4d4da;
-      font-size:12px
+      margin-bottom:9px;
+      color:#d8d8df;
+      font-size:12px;
+      font-weight:500
     }
 
     .cf-input{
-      display:block;
       width:100%;
       border:1px solid var(--line);
-      border-radius:6px;
-      background:#111116;
+      border-radius:7px;
+      background:var(--soft);
       color:var(--text);
       padding:14px 15px;
-      font:400 14px Inter,Arial,sans-serif;
+      font:inherit;
+      font-size:14px;
       outline:none
     }
 
     .cf-input:focus{
-      border-color:#a9b1ff
+      border-color:#baff79
     }
 
-    .cf-input::placeholder{
-      color:#6f6f7a
+    .cf-textarea{
+      min-height:150px;
+      resize:vertical
     }
 
     .cf-select{
       appearance:auto
     }
 
-    .cf-textarea{
-      min-height:140px;
-      resize:vertical
-    }
-
     .cf-submit{
       justify-self:start;
       border:0;
       border-radius:6px;
+      padding:13px 18px;
       background:linear-gradient(105deg,#e2ffbd,#baff79,#55e398);
       color:#0b2119;
-      padding:14px 19px;
-      font:700 13px Inter,Arial,sans-serif;
+      font:inherit;
+      font-size:13px;
+      font-weight:700;
       cursor:pointer
     }
 
-    .cf-submit:hover{
-      filter:brightness(1.06)
-    }
-
     footer{
-      padding:70px 0 30px
+      padding:125px 0 28px;
+      background:linear-gradient(145deg,#111119,#0d0d12)
     }
 
     .footer-main{
       display:grid;
       grid-template-columns:210px 1fr;
       gap:55px;
-      padding-bottom:65px
+      min-height:250px;
+      align-items:end
     }
 
     .footer-main .label{
-      color:#a9b1ff
+      color:#baff79
     }
 
     .footer-main h2{
-      max-width:690px;
-      margin:0;
-      font-size:clamp(30px,4vw,50px);
+      max-width:820px;
+      font-size:clamp(42px,5vw,67px);
       font-weight:500;
-      letter-spacing:-.07em;
-      line-height:1.05
+      letter-spacing:-.078em;
+      line-height:.98;
+      margin:0
     }
 
     .footer-actions{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
-      margin-top:27px
+      margin-top:28px
     }
 
-    .footer-actions a{
+    .email,
+    .resume-cta{
       display:inline-block;
+      padding:13px 18px;
       border-radius:6px;
-      padding:12px 16px;
-      font-size:12px;
+      font-size:13px;
       font-weight:600
     }
 
-    .footer-actions .email{
-      background:#f5f5f6;
-      color:#111116
+    .email{
+      border:1px solid var(--line);
+      color:#e8e8eb
     }
 
-    .footer-actions .resume-cta{
-      border:1px solid var(--line);
-      color:#f5f5f6
+    .email:hover{
+      border-color:#baff79
+    }
+
+    .resume-cta{
+      margin:0;
+      background:linear-gradient(105deg,#e2ffbd,#baff79,#55e398);
+      background-size:180% auto;
+      color:#0b2119;
+      font-weight:700;
+      animation:green-shine 5s linear infinite
     }
 
     .footer-bottom{
-      display:flex;
-      justify-content:space-between;
+      margin-top:86px;
       padding-top:20px;
       border-top:1px solid var(--line);
-      color:#7f7f89
-    }
-
-    @media(max-width:900px){
-      .hero{
-        padding-top:90px
-      }
-
-      .hero h1{
-        white-space:normal
-      }
-
-      .section-top,
-      .cf-intro,
-      .footer-main{
-        grid-template-columns:1fr;
-        gap:20px
-      }
-
-      .approach-grid{
-        grid-template-columns:repeat(2,1fr)
-      }
-
-      .experience-grid{
-        grid-template-columns:1fr;
-        gap:40px
-      }
+      display:flex;
+      justify-content:space-between;
+      color:#8c8c96
     }
 
     @media(max-width:760px){
+
       .shell,
       .container{
-        width:calc(100% - 36px)
+        width:min(100% - 32px,1280px)
       }
 
       nav{
-        height:68px
+        height:70px
       }
 
       .nav-shell{
-        height:52px;
-        padding:0 8px
+        height:51px
       }
 
       .nav-links{
@@ -783,47 +825,19 @@
       }
 
       .nav-button{
-        top:7px;
         right:8px;
-        padding:9px 13px
-      }
-
-      .menu-button{
-        display:block;
-        top:6px;
-        left:8px
-      }
-
-      .mobile-menu{
-        position:absolute;
-        z-index:10;
-        top:62px;
-        left:0;
-        right:0;
-        padding:12px;
-        border:1px solid var(--line);
-        border-radius:12px;
-        background:#111116
-      }
-
-      .mobile-menu.open{
-        display:grid;
-        gap:4px
-      }
-
-      .mobile-menu a{
-        padding:13px;
-        color:#dedee5;
-        font-size:14px
+        top:8px;
+        padding:9px 12px;
+        font-size:10px
       }
 
       .hero{
-        padding-top:75px
+        padding-top:82px
       }
 
       .hero h1{
-        font-size:clamp(39px,10vw,60px);
-        letter-spacing:-.075em
+        white-space:normal;
+        font-size:clamp(43px,11.7vw,64px)
       }
 
       .hero p{
@@ -831,80 +845,190 @@
       }
 
       .hero-actions{
-        flex-wrap:wrap
+        margin-top:27px
       }
 
       .outcome-stage{
-        width:calc(100% - 24px);
-        min-height:400px;
-        margin-top:60px
+        width:calc(100% - 32px);
+        height:520px;
+        margin-top:54px
       }
 
       .stage-copy{
-        padding:24px 20px
+        padding:22px 21px
+      }
+
+      .stage-copy h2{
+        font-size:15px;
+        line-height:1.25
+      }
+
+      .stage-copy p{
+        font-size:11px;
+        line-height:1.45;
+        max-width:100%;
+        padding-right:0
       }
 
       .chart-key{
-        top:85px;
-        right:20px
+        top:105px;
+        left:21px;
+        right:auto
       }
 
       .chart-wrap{
-        left:20px;
-        right:20px;
-        top:130px;
-        bottom:110px
+        top:145px;
+        bottom:auto;
+        height:200px;
+        left:21px;
+        right:21px
       }
 
       .industry-tabs{
-        left:20px;
-        right:20px;
-        bottom:18px
+        bottom:20px
       }
 
-      section{
-        padding:85px 0
+      .chart-label{
+        font-size:10px
       }
 
-      .section-top{
-        margin-bottom:35px
-      }
-
-      .section-top h2{
-        font-size:clamp(36px,9vw,50px)
+      .section-top,
+      .point-of-view,
+      .footer-main{
+        grid-template-columns:1fr;
+        gap:18px
       }
 
       .approach-grid{
         grid-template-columns:1fr
       }
 
-      .approach-card{
-        min-height:190px
+      .approach-step{
+        min-height:0
       }
 
-      .approach-card h3{
-        margin-top:25px
+      .approach-step h3{
+        font-size:21px
+      }
+
+      .role{
+        grid-template-columns:1fr;
+        gap:8px
+      }
+
+      section{
+        padding:77px 0
+      }
+
+      .footer-bottom{
+        margin-top:62px;
+        gap:12px;
+        flex-wrap:wrap
+      }
+
+      footer{
+        padding-top:77px
       }
 
       .cf-row{
         grid-template-columns:1fr
       }
 
-      .cf-intro h2{
-        font-size:clamp(38px,10vw,54px)
+      .cf-intro{
+        margin-bottom:40px
+      }
+    }
+
+    #approach .section-top .label,
+    #experience .section-top .label{
+      color:#baff79
+    }
+
+    @media(max-width:760px){
+
+      .nav-links{
+        display:none
       }
 
-      .cf-wrap{
-        margin:0
+      .menu-button{
+        display:block
       }
 
-      .footer-main{
-        padding-bottom:45px
+      .nav-shell{
+        justify-content:flex-start;
+        padding-right:11px
       }
 
-      .footer-bottom{
-        gap:15px;
-        flex-wrap:wrap
+      .nav-button{
+        display:none
+      }
+
+      .mobile-menu{
+        position:absolute;
+        z-index:10;
+        top:63px;
+        left:0;
+        right:0;
+        padding:12px;
+        border:1px solid var(--line);
+        border-radius:14px;
+        background:#15151b;
+        box-shadow:0 20px 40px rgba(0,0,0,.35)
+      }
+
+      .mobile-menu.open{
+        display:grid;
+        gap:2px
+      }
+
+      .mobile-menu a{
+        padding:14px 13px;
+        border-radius:8px;
+        color:#dedee4;
+        font-size:14px
+      }
+
+      .mobile-menu a:hover{
+        background:rgba(255,255,255,.06)
+      }
+
+      .outcome-stage{
+        height:520px
+      }
+
+      .stage-copy p{
+        max-width:100%;
+        padding-right:0
+      }
+
+      .chart-key{
+        top:105px;
+        left:21px;
+        right:auto
+      }
+
+      .chart-wrap{
+        top:145px;
+        bottom:auto;
+        height:200px;
+        left:21px;
+        right:21px
+      }
+
+      .industry-tabs{
+        bottom:20px
+      }
+
+      .chart-label{
+        font-size:10px
+      }
+
+      .approach-step{
+        min-height:0
+      }
+
+      .approach-step h3{
+        font-size:21px
       }
     }
   </style>
@@ -918,439 +1042,476 @@
       src="https://www.googletagmanager.com/ns.html?id=GTM-N6D8CBCC"
       height="0"
       width="0"
-      style="display:none;visibility:hidden"
-    ></iframe>
+      style="display:none;visibility:hidden">
+    </iframe>
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
 
   <div class="shell">
-
     <nav>
       <div class="nav-shell">
 
         <button
           class="menu-button"
           id="menuButton"
-          aria-label="Open navigation menu"
-          aria-expanded="false"
-        >
+          aria-label="Open menu">
           <span></span>
         </button>
 
-        <div class="nav-links">
+        <div class="nav-links label">
+          <a href="#outcomes">Outcomes</a>
           <a href="#approach">Approach</a>
           <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+          <a href="https://www.linkedin.com/in/shuaibbandeally" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
 
         <a class="nav-button" href="#contact">Get in touch ↗</a>
 
-        <div class="mobile-menu" id="mobileMenu">
-          <a href="#approach">Approach</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-        </div>
+      </div>
 
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#outcomes">Outcomes</a>
+        <a href="#approach">Approach</a>
+        <a href="#experience">Experience</a>
+        <a href="#about">About me</a>
+        <a href="https://www.linkedin.com/in/shuaibbandeally" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <a href="#contact">Get in touch ↗</a>
       </div>
     </nav>
+  </div>
 
-    <main>
+  <header class="hero" id="top">
+    <div class="container">
 
-      <!-- HERO -->
+      <div class="eyebrow label">
+        Growth strategy &amp; performance marketing
+      </div>
 
-      <div class="hero">
+      <h1>
+        Growth is not a channel problem.
+        <span class="sub">
+          It is a <span class="gradient">business</span> problem first.
+        </span>
+      </h1>
 
-        <p class="eyebrow label">
-          GROWTH STRATEGY · PERFORMANCE MARKETING
+      <p>
+        I help D2C, retail and BFSI businesses understand where growth is breaking—then turn that diagnosis into a media and funnel strategy built for profitable scale.
+      </p>
+
+      <div class="hero-actions">
+        <a class="primary" href="#outcomes">See the outcomes</a>
+        <a class="secondary" href="#contact">Start a conversation</a>
+      </div>
+
+    </div>
+
+    <div class="outcome-stage" id="outcomes">
+
+      <div class="stage-copy">
+        <h2 id="chartTitle">Retail — Revenue</h2>
+        <p id="stageSummary">
+          Consistently achieved an average of 95% of target in FY25–26 while maintaining LTV:CAC ratio.
+        </p>
+      </div>
+
+      <div class="chart-key">
+        <span><i class="dash"></i>Target</span>
+        <span><i></i>Achieved</span>
+      </div>
+
+      <div class="chart-wrap">
+
+        <svg
+          id="outcomeChart"
+          viewBox="0 0 400 220"
+          preserveAspectRatio="xMidYMid meet"
+          aria-label="Industry outcome chart">
+
+          <defs>
+            <linearGradient id="lineGradient" x1="0" x2="1">
+              <stop stop-color="#8d9cff"/>
+              <stop offset="1" stop-color="#ab8cf1"/>
+            </linearGradient>
+
+            <linearGradient id="areaGradient" x1="0" x2="0" y1="0" y2="1">
+              <stop stop-color="#8797ff"/>
+              <stop offset="1" stop-color="#8797ff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <path id="areaPath" class="actual-area" d=""></path>
+          <path id="targetPath" class="target-path" d=""></path>
+          <path id="actualPath" class="actual-path" d=""></path>
+          <g id="chartPoints"></g>
+          <g id="chartLabels"></g>
+
+        </svg>
+
+      </div>
+
+      <div class="industry-tabs" id="industryTabs">
+        <button class="industry-tab active" data-industry="retail">Retail</button>
+        <button class="industry-tab" data-industry="manufacturing">Manufacturing</button>
+        <button class="industry-tab" data-industry="consumer">Consumer Goods</button>
+        <button class="industry-tab" data-industry="financial">Financial Services</button>
+        <button class="industry-tab" data-industry="education">Education</button>
+      </div>
+
+    </div>
+  </header>
+
+  <section id="approach" class="approach">
+
+    <div class="container">
+
+      <div class="section-top">
+
+        <div class="label">How I work</div>
+
+        <div>
+          <h2>Every outcome begins with a better decision.</h2>
+        </div>
+
+      </div>
+
+      <div class="approach-grid">
+
+        <article class="approach-step">
+          <span class="method-pill">Architect</span>
+          <h3>Architect the model.</h3>
+          <p>
+            Design the growth model around the business constraints.
+          </p>
+        </article>
+
+        <article class="approach-step">
+          <span class="method-pill">Validate</span>
+          <h3>Validate the assumptions.</h3>
+          <p>
+            Test every assumption against reality.
+          </p>
+        </article>
+
+        <article class="approach-step">
+          <span class="method-pill">Compound</span>
+          <h3>Compound what works.</h3>
+          <p>
+            Scale the winners, raise the benchmark, and let every improvement compound into business growth.
+          </p>
+        </article>
+
+      </div>
+
+      <p class="approach-note">
+        Growth isn't about doing more. It's about understanding the constraint, validating the assumptions, and compounding what proves itself.
+      </p>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <div class="container">
+
+      <div class="point-of-view">
+
+        <p class="quote">
+          I care about
+          <span class="gradient">revenue and profitability</span>,
+          not reports that look good in isolation.
         </p>
 
-        <h1>
-          Turning growth into
-          <span class="sub">a <span class="gradient">system.</span></span>
-        </h1>
+        <div>
+
+          <p class="pov-copy">
+            My work sits close to growth consulting. I start by understanding the business problem, the market and the customer funnel. Then I translate that into a plan the team can execute.
+          </p>
+
+          <p class="pov-copy">
+            The platforms matter. But so do the offer, the landing experience, the new-versus-returning mix and what happens after the first purchase.
+          </p>
+
+          <div class="skills">
+            <span class="skill">Meta Ads</span>
+            <span class="skill">Google Ads</span>
+            <span class="skill">DV360</span>
+            <span class="skill">Media Planning</span>
+            <span class="skill">Funnel Analysis</span>
+            <span class="skill">Creative Testing</span>
+            <span class="skill">GTM Strategy</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="about">
+
+    <div class="container">
+
+      <div class="point-of-view">
+
+        <p class="quote">
+          Built around the numbers, but never blind to the
+          <span class="gradient">business behind them.</span>
+        </p>
+
+        <div>
+
+          <p class="pov-copy">
+            I have nearly four years of experience helping businesses grow through digital marketing—across established brands and early-stage teams. The work is where commercial context, customer behaviour and media execution meet.
+          </p>
+
+          <p class="pov-copy">
+            I am comfortable taking ownership of business outcomes, presenting recommendations to stakeholders and using data to influence decisions with confidence.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="experience">
+
+    <div class="container">
+
+      <div class="section-top">
+
+        <div class="label">Experience</div>
+
+        <div>
+          <h2>
+            Built across agency teams, brands and founder-led businesses.
+          </h2>
+        </div>
+
+      </div>
+
+      <div class="experience">
+
+        <div class="role">
+
+          <time class="label">2024 — Present</time>
+
+          <div>
+            <div class="company label">Agency</div>
+            <h3>Associate Business Manager</h3>
+          </div>
+
+          <p>
+            Own growth strategy and paid media execution for BFSI, retail and D2C clients across Meta, Google and DV360.
+          </p>
+
+        </div>
+
+        <div class="role">
+
+          <time class="label">2024</time>
+
+          <div>
+            <div class="company label">Consumer Goods</div>
+            <h3>Performance Marketer</h3>
+          </div>
+
+          <p>
+            Led multi-market acquisition across India, the US, UK and Canada.
+          </p>
+
+        </div>
+
+        <div class="role">
+
+          <time class="label">2023 — 2024</time>
+
+          <div>
+            <div class="company label">Education</div>
+            <h3>Digital Marketing Manager</h3>
+          </div>
+
+          <p>
+            Built the acquisition engine for an educational board-game business, growing orders from 20 to 350+ per month.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="cf-intro">
+
+        <div class="label">Get in touch</div>
+
+        <h2>
+          Let's work <span class="gradient">together.</span>
+        </h2>
 
         <p>
-          I help businesses identify constraints, build acquisition systems,
-          and scale growth through performance marketing and experimentation.
+          Have a growth problem, project, or idea you'd like to discuss?
+          Send me a note and I'll get back to you.
         </p>
 
-        <div class="hero-actions">
-          <a class="primary" href="#contact">Start a conversation ↗</a>
-          <a class="secondary" href="#experience">Explore my experience</a>
-        </div>
-
       </div>
 
-      <!-- OUTCOME CHART -->
+      <div class="cf-wrap">
 
-      <div class="outcome-stage">
+        <form class="cf-form" id="contact-form">
 
-        <div class="stage-copy">
-          <h2 id="chartTitle">Retail</h2>
-          <p id="stageSummary">
-            Consistently achieved an average of 95% of target in FY25–26 while maintaining LTV:CAC ratio.
-          </p>
-        </div>
-
-        <div class="chart-key">
-          <span><i></i> Actual</span>
-          <span><i class="dash"></i> Target</span>
-        </div>
-
-        <div class="chart-wrap">
-
-          <svg
-            id="outcomeChart"
-            viewBox="0 0 1000 220"
-            preserveAspectRatio="none"
-            role="img"
-            aria-label="Business performance chart"
-          >
-            <defs>
-              <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#9c8bff" />
-                <stop offset="100%" stop-color="#83f2c2" />
-              </linearGradient>
-
-              <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#8995ff" />
-                <stop offset="100%" stop-color="#8995ff" stop-opacity="0" />
-              </linearGradient>
-            </defs>
-
-            <path id="areaPath" class="actual-area"></path>
-            <path id="targetPath" class="target-path"></path>
-            <path id="actualPath" class="actual-path"></path>
-            <g id="chartPoints"></g>
-            <g id="chartLabels"></g>
-          </svg>
-
-        </div>
-
-        <div class="industry-tabs" id="industryTabs">
-          <button class="industry-tab active" data-industry="retail">Retail</button>
-          <button class="industry-tab" data-industry="manufacturing">Manufacturing</button>
-          <button class="industry-tab" data-industry="consumer">Consumer Goods</button>
-          <button class="industry-tab" data-industry="financial">Financial Services</button>
-          <button class="industry-tab" data-industry="education">Education</button>
-        </div>
-
-      </div>
-
-      <!-- APPROACH -->
-
-      <section class="approach" id="approach">
-
-        <div class="container">
-
-          <div class="section-top">
-            <div class="label">HOW I WORK</div>
+          <div class="cf-row">
 
             <div>
-              <h2>
-                Growth is not a collection of tactics.
-                It's a <span class="gradient">system.</span>
-              </h2>
+              <label class="cf-label" for="cf-name">
+                Your name
+              </label>
 
-              <p>
-                I focus on understanding the business, finding the constraint,
-                validating the right solution, and scaling what works.
-              </p>
+              <input
+                class="cf-input"
+                id="cf-name"
+                name="name"
+                type="text"
+                placeholder="Full name"
+                required
+              >
             </div>
-          </div>
-
-          <div class="approach-grid">
-
-            <div class="approach-card">
-              <div class="number">01 / DIAGNOSE</div>
-              <h3>Identify constraints</h3>
-              <p>
-                Understand the economics, customer journey, and bottlenecks
-                that are limiting growth.
-              </p>
-            </div>
-
-            <div class="approach-card">
-              <div class="number">02 / DESIGN</div>
-              <h3>Build the model</h3>
-              <p>
-                Translate business objectives into an acquisition strategy,
-                measurement plan, and operating model.
-              </p>
-            </div>
-
-            <div class="approach-card">
-              <div class="number">03 / VALIDATE</div>
-              <h3>Test the hypothesis</h3>
-              <p>
-                Use structured experiments to validate assumptions before
-                committing more budget and resources.
-              </p>
-            </div>
-
-            <div class="approach-card">
-              <div class="number">04 / COMPOUND</div>
-              <h3>Scale what works</h3>
-              <p>
-                Turn validated insights into repeatable systems that improve
-                performance over time.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      <!-- EXPERIENCE -->
-
-      <section id="experience">
-
-        <div class="container">
-
-          <div class="section-top">
-            <div class="label">EXPERIENCE</div>
 
             <div>
-              <h2>
-                Connecting business goals with
-                <span class="gradient">measurable growth.</span>
-              </h2>
+              <label class="cf-label" for="cf-email">
+                Email address
+              </label>
 
-              <p>
-                Experience across performance marketing, acquisition strategy,
-                analytics, and multi-channel campaign management.
-              </p>
-            </div>
-          </div>
-
-          <div class="experience-grid">
-
-            <div class="experience-copy">
-              <h3>From execution to growth strategy.</h3>
-
-              <p>
-                I work across the strategy and execution layers of paid
-                acquisition: understanding the business problem, planning
-                campaigns, interpreting performance, and identifying the next
-                opportunity for growth.
-              </p>
+              <input
+                class="cf-input"
+                id="cf-email"
+                name="email"
+                type="email"
+                placeholder="you@email.com"
+                required
+              >
             </div>
 
-            <div class="role-list">
-
-              <div class="role">
-                <time class="label">2024 — NOW</time>
-
-                <div>
-                  <div class="company label">Digital Agency</div>
-                  <h3>Associate Business Manager</h3>
-                </div>
-
-                <p>
-                  Own growth strategy and paid media execution for BFSI, retail and D2C clients across Meta, Google and DV360.
-                </p>
-              </div>
-
-              <div class="role">
-                <time class="label">2024</time>
-
-                <div>
-                  <div class="company label">Consumer Goods</div>
-                  <h3>Performance Marketer</h3>
-                </div>
-
-                <p>
-                  Led multi-market acquisition across India, the US, UK and Canada.
-                </p>
-              </div>
-
-              <div class="role">
-                <time class="label">2023 — 2024</time>
-
-                <div>
-                  <div class="company label">Education</div>
-                  <h3>Digital Marketing Manager</h3>
-                </div>
-
-                <p>
-                  Built the acquisition engine for an educational board-game business, growing orders from 20 to 350+ per month.
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      <!-- CONTACT -->
-
-      <section id="contact">
-
-        <div class="container">
-
-          <div class="cf-intro">
-
-            <div class="label">Get in touch</div>
-
-            <div>
-              <h2>
-                Let's work <span class="gradient">together.</span>
-              </h2>
-
-              <p>
-                Have a growth problem, project, or idea you'd like to discuss?
-                Send me a note and I'll get back to you.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="cf-wrap">
-
-            <form class="cf-form" id="contact-form">
-
-              <div class="cf-row">
-
-                <div>
-                  <label class="cf-label" for="cf-name">
-                    Your name
-                  </label>
-
-                  <input
-                    class="cf-input"
-                    id="cf-name"
-                    name="name"
-                    type="text"
-                    placeholder="Full name"
-                    required
-                  >
-                </div>
-
-                <div>
-                  <label class="cf-label" for="cf-email">
-                    Email address
-                  </label>
-
-                  <input
-                    class="cf-input"
-                    id="cf-email"
-                    name="email"
-                    type="email"
-                    placeholder="you@email.com"
-                    required
-                  >
-                </div>
-
-              </div>
-
-              <div>
-                <label class="cf-label" for="cf-topic">
-                  I am reaching out about
-                </label>
-
-                <select
-                  class="cf-input cf-select"
-                  id="cf-topic"
-                  name="topic"
-                  required
-                >
-                  <option value="">Pick a topic</option>
-                  <option value="Consulting">Consulting</option>
-                  <option value="Advising">Advising</option>
-                  <option value="Speaking">Speaking</option>
-                  <option value="Coaching">Coaching</option>
-                  <option value="Teaching">Teaching</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="cf-label" for="cf-msg">
-                  Your message
-                </label>
-
-                <textarea
-                  class="cf-input cf-textarea"
-                  id="cf-msg"
-                  name="message"
-                  placeholder="Tell me a little about what you are working on"
-                  required
-                ></textarea>
-              </div>
-
-              <button type="submit" class="cf-submit">
-                Send me this message
-              </button>
-
-            </form>
-
-          </div>
-
-        </div>
-
-      </section>
-
-    </main>
-
-    <footer>
-
-      <div class="container">
-
-        <div class="footer-main">
-
-          <div class="label">
-            A useful next conversation
           </div>
 
           <div>
 
-            <h2>
-              Have a growth problem that needs a clearer answer?
-            </h2>
+            <label class="cf-label" for="cf-topic">
+              I am reaching out about
+            </label>
 
-            <div class="footer-actions">
+            <select
+              class="cf-input cf-select"
+              id="cf-topic"
+              name="topic"
+              required
+            >
+              <option value="">Pick a topic</option>
+              <option value="Consulting">Consulting</option>
+              <option value="Advising">Advising</option>
+              <option value="Speaking">Speaking</option>
+              <option value="Coaching">Coaching</option>
+              <option value="Teaching">Teaching</option>
+              <option value="Other">Other</option>
+            </select>
 
-              <a
-                class="email"
-                href="https://www.linkedin.com/in/shuaibbandeally"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Connect on LinkedIn ↗
-              </a>
+          </div>
 
-              <a
-                class="resume-cta"
-                href="https://drive.google.com/file/d/1XauldTFUmSd8pp5AIR-XcH68Bn3ZKFbC/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Download résumé ↗
-              </a>
+          <div>
 
-            </div>
+            <label class="cf-label" for="cf-msg">
+              Your message
+            </label>
+
+            <textarea
+              class="cf-input cf-textarea"
+              id="cf-msg"
+              name="message"
+              placeholder="Tell me a little about what you are working on"
+              required
+            ></textarea>
+
+          </div>
+
+          <button type="submit" class="cf-submit">
+            Send me this message
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-main">
+
+        <div class="label">
+          A useful next conversation
+        </div>
+
+        <div>
+
+          <h2>
+            Have a growth problem that needs a clearer answer?
+          </h2>
+
+          <div class="footer-actions">
+
+            <a
+              class="email"
+              href="https://www.linkedin.com/in/shuaibbandeally"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Connect on LinkedIn ↗
+            </a>
+
+            <a
+              class="resume-cta"
+              href="https://drive.google.com/file/d/1XauldTFUmSd8pp5AIR-XcH68Bn3ZKFbC/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Download résumé ↗
+            </a>
 
           </div>
 
         </div>
 
-        <div class="footer-bottom label">
-          <span>© 2026 Shuaib Bandeally</span>
-          <span>Mumbai, India</span>
-        </div>
-
       </div>
 
-    </footer>
+      <div class="footer-bottom label">
+        <span>© 2026 Shuaib Bandeally</span>
+        <span>Mumbai, India</span>
+      </div>
 
-  </div>
+    </div>
+
+  </footer>
 
   <script>
+
     const outcomeData = {
       retail: {
         title:'Retail',
@@ -1425,6 +1586,7 @@
     }
 
     function render(key){
+
       const data=outcomeData[key];
       const actual=pathFor(data.actual);
       const target=pathFor(data.target);
@@ -1491,16 +1653,11 @@
 
     menuButton.addEventListener('click',()=>{
       mobileMenu.classList.toggle('open');
-      menuButton.setAttribute(
-        'aria-expanded',
-        mobileMenu.classList.contains('open')
-      );
     });
 
     mobileMenu.addEventListener('click',e=>{
       if(e.target.matches('a')){
         mobileMenu.classList.remove('open');
-        menuButton.setAttribute('aria-expanded','false');
       }
     });
 
@@ -1511,16 +1668,18 @@
     });
 
     render('retail');
+
   </script>
 
-  <!-- Contact form: open the visitor's email app with a prefilled message -->
   <script>
+
     const contactForm = document.getElementById('contact-form');
 
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
       const formData = new FormData(contactForm);
+
       const name = formData.get('name');
       const email = formData.get('email');
       const topic = formData.get('topic');
@@ -1535,9 +1694,11 @@ My email address is ${email}.
 I'm reaching out about: ${topic}.
 
 Message:
+
 ${message}
 
 Regards,
+
 ${name}`;
 
       const mailto =
@@ -1545,6 +1706,7 @@ ${name}`;
 
       window.location.href = mailto;
     });
+
   </script>
 
 </body>
