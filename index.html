@@ -1554,51 +1554,216 @@
       }
     };
 
-    </script>
+    const chart = document.getElementById('outcomeChart');
+    const targetPath = document.getElementById('targetPath');
+    const actualPath = document.getElementById('actualPath');
+    const areaPath = document.getElementById('areaPath');
+    const points = document.getElementById('chartPoints');
+    const labels = document.getElementById('chartLabels');
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    function chartWidth(){
+      return window.innerWidth <= 760 ? 400 : 1000;
+    }
+
+    function pointFor(values,index){
+      const max=Math.max(...values,120);
+      const width=chartWidth();
+      const x=values.length===1
+        ? width/2
+        : index*(width/(values.length-1));
+
+      return {
+        x,
+        y:204-(values[index]/max)*174
+      };
+    }
+
+    function pathFor(values){
+      return values.map((v,i)=>{
+        const point=pointFor(values,i);
+        return `${i?'L':'M'} ${point.x} ${point.y}`;
+      }).join(' ');
+    }
+
+    function render(key){
+
+      const data=outcomeData[key];
+      const actual=pathFor(data.actual);
+      const target=pathFor(data.target);
+      const width=chartWidth();
+
+      chart.setAttribute('viewBox',`0 0 ${width} 220`);
+      chart.setAttribute('preserveAspectRatio','none');
+
+      targetPath.setAttribute('d',target);
+      actualPath.setAttribute('d',actual);
+
+      areaPath.setAttribute(
+        'd',
+        `${actual} L ${width} 220 L 0 220 Z`
+      );
+
+      points.innerHTML=data.actual.map((v,i)=>{
+        const point=pointFor(data.actual,i);
+
+        return `
+          <circle
+            class="point"
+            cx="${point.x}"
+            cy="${point.y}"
+            r="5"
+          />
+        `;
+      }).join('');
+
+      labels.innerHTML=data.labels.map((label,i)=>{
+        const point=pointFor(data.actual,i);
+
+        return `
+          <text
+            class="chart-label"
+            x="${point.x}"
+            y="217"
+            text-anchor="${i===0?'start':i===data.labels.length-1?'end':'middle'}"
+          >
+            ${label}
+          </text>
+        `;
+      }).join('');
+
+      document.getElementById('chartTitle').textContent=data.title;
+      document.getElementById('stageSummary').textContent=data.summary;
+
+      document.querySelectorAll('.industry-tab').forEach(btn=>{
+        btn.classList.toggle(
+          'active',
+          btn.dataset.industry===key
+        );
+      });
+    }
+
+    document.getElementById('industryTabs').addEventListener('click',e=>{
+      if(e.target.matches('.industry-tab')){
+        render(e.target.dataset.industry);
+      }
+    });
+
+    const menuButton=document.getElementById('menuButton');
+    const mobileMenu=document.getElementById('mobileMenu');
+
+    menuButton.addEventListener('click',()=>{
+      mobileMenu.classList.toggle('open');
+    });
+
+    mobileMenu.addEventListener('click',e=>{
+      if(e.target.matches('a')){
+        mobileMenu.classList.remove('open');
+      }
+    });
+
+    window.addEventListener('resize',()=>{
+      render(
+        document.querySelector('.industry-tab.active').dataset.industry
+      );
+    });
+
+    render('retail');
+
+  </script>
+
 
 <script>
-  const SUPABASE_URL = 'https://zcdzsdserzcextpmeoma.supabase.co';
-  const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_L5w6LHZM-6UvwRTqf_mbTw_ZlrkPeT8';
-
-  const supabaseClient = supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
-  );
+  // Replace this with your deployed Google Apps Script Web App URL.
+  const CONTACT_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwzhrVeS3hllw89xyykDzIL8swnBe5WUrDszUa7AEL2vaAiQZAJZdPV-byKn7ypjdxS/exec';
 
   const contactForm = document.getElementById('contact-form');
 
-  contactForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
 
-    const submitButton = contactForm.querySelector('[type="submit"]');
-    const formData = new FormData(contactForm);
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
 
-    submitButton.disabled = true;
-    submitButton.textContent = 'Sending…';
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton
+        ? submitButton.textContent
+        : '';
 
-    const { error } = await supabaseClient
-      .from('shuaib-bandeally-website-contacts')
-      .insert([{
-        name: formData.get('name'),
-        email: formData.get('email'),
-        topic: formData.get('topic'),
-        message: formData.get('message')
-      }]);
+      const formData = new FormData(contactForm);
 
-    submitButton.disabled = false;
-    submitButton.textContent = 'Send me this message';
+      const payload = {
+        name: String(formData.get('name') || '').trim(),
+        email: String(formData.get('email') || '').trim(),
+        topic: String(formData.get('topic') || '').trim(),
+        message: String(formData.get('message') || '').trim()
+      };
 
-    if (error) {
-      console.error('Supabase error:', error);
-      alert(`Could not send your message: ${error.message}`);
-      return;
-    }
+      if (
+        CONTACT_FORM_ENDPOINT ===
+        'https://script.google.com/macros/s/AKfycbwzhrVeS3hllw89xyykDzIL8swnBe5WUrDszUa7AEL2vaAiQZAJZdPV-byKn7ypjdxS/exec'
+      ) {
+        alert('The contact form is not connected yet.');
+        return;
+      }
 
-    alert('Message sent successfully!');
-    contactForm.reset();
-  });
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending…';
+      }
+
+      try {
+        const response = await fetch(CONTACT_FORM_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload),
+          redirect: 'follow'
+        });
+
+        if (!response.ok) {
+          throw new Error('The submission request failed.');
+        }
+
+        const result = await response.json();
+
+        if (!result || result.success !== true) {
+          throw new Error('The lead was not confirmed as saved.');
+        }
+
+        // Track the lead only after the endpoint confirms success.
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'generate_lead',
+          lead_topic: payload.topic
+        });
+
+        contactForm.reset();
+
+        alert(
+          'Thanks for reaching out. Your message has been submitted successfully.'
+        );
+
+      } catch (error) {
+        console.error('Contact form submission failed:', error);
+
+        alert(
+          'We could not submit your message. Please try again in a moment.'
+        );
+
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      }
+    });
+  }
 </script>
+
+
 </body>
 </html>
